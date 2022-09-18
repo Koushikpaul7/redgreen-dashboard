@@ -1,3 +1,16 @@
+@import '~antd/dist/antd.css';
+
+.product-main{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-sub{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .App {
   text-align: center;
 }
