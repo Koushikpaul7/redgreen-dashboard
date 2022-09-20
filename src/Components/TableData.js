@@ -49,13 +49,23 @@ const TableData = () => {
                                         textAlign: "center",
                                         borderRadius: "8px",
                                         border: "1px solid #d5cfcf",
-                                        fontFamily: 'Poppins'
+                                        fontFamily: 'Poppins',
+                                        fontStyle: 'normal',
+                                        fontWeight: 500,
+                                        fontSize: '20px',
+                                        lineHeight: '26px'
                                     }}>
                                     <h1>{salesData.name}</h1>
                                 </div>
                             </div>
                             <div>
-                                <h1>{salesData.title}</h1>
+                                <h1 style={{
+                                    fontFamily: 'poppins',
+                                    fontStyle: 'normal',
+                                    fontWeight: 500,
+                                    fontSize: '16px',
+                                    lineHeight: '24px',
+                                }}>{salesData.title}</h1>
                                 {
                                     salesData.profit < 0
                                     ?

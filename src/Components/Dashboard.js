@@ -13,13 +13,15 @@ import Linechart from './Linechart';
 import TableData from './TableData';
 import { IconBase } from 'react-icons';
 import SaleDetails from './SaleDetails';
+import Weather from './Weather';
 
 
 const { Header, Content, Sider } = Layout;
 
-function getItem(label, key,  children, type) {
+function getItem(icon,label, key,  children, type) {
   return {
     key,
+    icon,
     label,
     children,
     type
@@ -27,8 +29,15 @@ function getItem(label, key,  children, type) {
 }
 const items = [
    
-  getItem('Item 1', 'g1', [getItem('Option 1', '1'), getItem('Option 2', '2')], 'group'),
- getItem('Item 2', 'g2',[getItem('Option 3', '3'), getItem('Option 4', '4')], 'group'),
+  getItem('icon1','Menu', 'g1', [getItem( <AlignRightOutlined style={{transform: "rotate(90deg)"}} />,'Dashboard','1'),
+  getItem(  <GrMapLocation/>,'Maps','2'),
+  getItem( <BsMenuButton/> ,'Menu','3')
+] ,'group'),
+ getItem('icon2','Others', 'g2',[
+  getItem(  <AiTwotoneSetting/>,'Settings','4'),
+  getItem(  <HiUser/>,'Accounts','5'),
+  getItem(  <BsFillInfoSquareFill/>,'Help','6'),
+ ], 'group'),
 ]
       const { Search } = Input;
 
@@ -39,7 +48,7 @@ const App = () => {
    return(
     
   <Layout>
-    <Header style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
+    <Header xs={'hidden'} style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
      
       
       <p style={{color:'blue',fontSize:20,fontWeight:"bold"}}><small> <span style={{backgroundColor:'blue',padding:(5,8,5,8),color:"white", borderRadius:"50%",fontWeight:"bold",fontSize:10, marginRight:10 }}>L</span> Loogoo  </small></p>
@@ -77,11 +86,11 @@ const App = () => {
     <Layout style={{marginTop:80,backgroundColor:"white"}}>
       
       <Sider trigger={null} collapsible collapsed={collapsed}
-       style={{backgroundColor:"Lavender",marginTop:"100px"}}
+       style={{backgroundColor:"#E1E1E1",marginTop:"100px"}}
       >
         {/* <div className="logo" /> */}
         <Menu
-         style={{paddingTop:20,backgroundColor:"Lavender",position:"fixed",overflowX:"hidden",width:"200px",top:"50px",left:"0px",height:"100%",borderRight:0}}
+         style={{paddingTop:20,backgroundColor:"#E1E1E1",position:"fixed",overflowX:"hidden",width:"200px",top:"50px",left:"0px",height:"100%",borderRight:0}}
 
           mode="inline"
           defaultSelectedKeys={['1']}
@@ -134,11 +143,11 @@ const App = () => {
               borderLeftWidth:4
           }}
       />
-          <Row>
-      <Col flex={3}  >
-      <Card style={{width:'900px',marginLeft:10,height:"80vh"}}>
+          <Row >
+      <Col xs={24} xl={18} flex={3}  >
+      <Card style={{ marginLeft:10,height:"80vh"}}>
       <p style={{fontSize:24,fontWeight:"bold"}}>Total sales</p>
-        <div style={{display:"flex"}}>
+        <div style={{lg:{display:"flex"}}}>
         <div style={{marginTop:40}}>
         <p style={{color:'gray'}}>Tv</p>
         <p style={{fontSize:20,fontWeight:"semiBold"}}>600.00</p>
@@ -146,17 +155,37 @@ const App = () => {
         <p style={{fontSize:20,fontWeight:"semiBold"}}>12000.00</p>
         <p style={{color:'gray'}}>Others</p>
         <p style={{fontSize:20,fontWeight:"semiBold"}}>200.287</p></div>
-          <div style={{width:"70%",marginLeft:'160px'}}>
+          <div style={{width:"full",lg:{marginLeft:'160px'}}}>
           <Linechart />
           </div>
         </div>
   </Card>
       
       </Col>
-      <Col style={{width:'350px'}} flex={2}>
+      <Col xs={24} xl={8} style={{marginLeft:10}} flex={2}>
       <Card style={{height:"80vh",marginRight:"10px",boxShadow:"10px"}}>
       <p style={{fontSize:24,fontWeight:"bold"}}>Sales chart</p>
-        <p style={{color:'gray'}}>Laptop</p>
+        
+        <div  style={{
+            display:"flex",
+            justifyContent:"space-between"
+          }}>
+          <div>
+            <p style={{color:'gray'}}>Todays Sale</p>
+          </div>
+              <div>
+              <Select 
+      defaultValue="Today"
+      style={{
+      width: 100,
+      }}
+      
+    >
+      <Option value="Last week">Last week</Option>
+      <Option value="Last Month">Last Month</Option>
+    </Select>
+              </div>
+        </div>
         <p style={{fontSize:28,fontWeight:"semiBold"}}>156</p>
       <Piechart/>
   </Card>
@@ -175,10 +204,14 @@ const App = () => {
      <Card style={{margin:10,}}>
       <SaleDetails/>
       </Card>
-      </Col>
-     
-    </Row>
+          <Weather></Weather>
          
+
+      </Col>
+
+          
+    </Row>
+    
          
         </Content>
       </Layout>
