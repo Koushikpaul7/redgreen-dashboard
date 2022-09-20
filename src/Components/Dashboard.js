@@ -48,7 +48,7 @@ const App = () => {
    return(
     
   <Layout>
-    <Header xs={'hidden'} style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
+    <Header style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
      
       
       <p style={{color:'blue',fontSize:20,fontWeight:"bold"}}><small> <span style={{backgroundColor:'blue',padding:(5,8,5,8),color:"white", borderRadius:"50%",fontWeight:"bold",fontSize:10, marginRight:10 }}>L</span> Loogoo  </small></p>
@@ -61,7 +61,8 @@ const App = () => {
         width: 500,
         marginTop:18,
         marginLeft:80,
-        marginRight:550
+        marginRight:550,
+        
       }}
     />
      <Badge dot={show}  style={{marginTop:22}}>
