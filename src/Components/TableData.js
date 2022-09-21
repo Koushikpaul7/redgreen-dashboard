@@ -38,22 +38,13 @@ const TableData = () => {
             {
                 AllSalesData.map(salesData=>
                     <div>
-                        <div className='product-main'>
-                        <div className='product-sub'>
+                        <div className='main'>
+                        <div className='sub-main'>
                             <div>
                                 <div 
                                     style={{
-                                        width: "45px",
-                                        marginRight: "8px",
-                                        padding: "8px 10px",
-                                        textAlign: "center",
-                                        borderRadius: "8px",
-                                        border: "1px solid #d5cfcf",
-                                        fontFamily: 'Poppins',
-                                        fontStyle: 'normal',
-                                        fontWeight: 500,
-                                        fontSize: '20px',
-                                        lineHeight: '26px'
+                                        width: "45px",marginRight: "8px",padding: "8px 10px",textAlign: "center",borderRadius: "8px",border: "1px solid #d5cfcf",fontFamily: 'Poppins',fontStyle: 'normal',
+                                        fontWeight: 500,fontSize: '20px',lineHeight: '26px'
                                     }}>
                                     <h1>{salesData.name}</h1>
                                 </div>

@@ -14,8 +14,9 @@ import TableData from './TableData';
 import { IconBase } from 'react-icons';
 import SaleDetails from './SaleDetails';
 import Weather from './Weather';
-
-
+import cloud from './../images/Vector (2).png'
+import rain from './../images/Vector (1).png'
+import App from '../App.css'
 const { Header, Content, Sider } = Layout;
 
 function getItem(icon,label, key,  children, type) {
@@ -42,28 +43,23 @@ const items = [
       const { Search } = Input;
 
 const onSearch = (value) => console.log(value);
-const App = () => {
+const Dashboard = () => {
     const [collapsed, setCollapsed] = useState(false);
     const [show, setShow] = useState(true);
    return(
     
-  <Layout>
-    <Header style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
+  <Layout className='App'>
+    <Header sm={'hidden'} style={{backgroundColor:"white",position:"fixed",zIndex:1,width:"100%",display:"flex",overflow:"hidden"}} >
      
       
-      <p style={{color:'blue',fontSize:20,fontWeight:"bold"}}><small> <span style={{backgroundColor:'blue',padding:(5,8,5,8),color:"white", borderRadius:"50%",fontWeight:"bold",fontSize:10, marginRight:10 }}>L</span> Loogoo  </small></p>
+      <p style={{color:'blue',fontSize:20,fontWeight:"bold"}}><small> <span style={{backgroundColor:'blue',padding:(5,8,5,8),color:"white", borderRadius:"50%",fontWeight:"bold",fontSize:10,marginRight:10}}>L</span>Loogoo</small></p>
       
     <Search
       placeholder="input search text"
       onSearch={onSearch}
+      className='search-box'
       
-      style={{
-        width: 500,
-        marginTop:18,
-        marginLeft:80,
-        marginRight:550,
-        
-      }}
+     
     />
      <Badge dot={show}  style={{marginTop:22}}>
         <BsBellFill shape="square" size={20} dot={show}  style={{marginTop:22}} />
@@ -86,7 +82,7 @@ const App = () => {
     </Header>
     <Layout style={{marginTop:80,backgroundColor:"white"}}>
       
-      <Sider trigger={null} collapsible collapsed={collapsed}
+      <Sider className='side' trigger={null} collapsible collapsed={collapsed}
        style={{backgroundColor:"#E1E1E1",marginTop:"100px"}}
       >
         {/* <div className="logo" /> */}
@@ -124,31 +120,22 @@ const App = () => {
         >
           <p  style={{fontSize:20,fontWeight:"bold",marginLeft:10}}>Redgreen Sales</p>
            
-          <img src="https://i.ibb.co/s91GfL5/Vector.png" style={{position: 'absolute', zIndex: 1, marginLeft: 20, marginTop:20}} alt="" />
-          <img src="https://i.ibb.co/F0VMzbn/Vector.png" style={{position: 'absolute', zIndex: 3, marginLeft: 27, marginTop:53}} alt="" />
+          <img src={cloud} style={{position: 'absolute', zIndex: 1, marginLeft: 20, marginTop:20}} alt="" />
+          <img src={rain} style={{position: 'absolute', zIndex: 3, marginLeft: 27, marginTop:53,}} alt="" />
       <Alert
           message="Notification"
           description="You dont have enough stock for the next campaign."
           image="https://joeschmoe.io/api/v1/random"
           type="warning"
           closable
-          style={{
-              height: 90,
-              color: '#9D8506',
-              fonWeight: 400,
-              fontSize: 16,
-              paddingLeft:100,
-              margin:10,
-              position: 'relative',
-              borderLeftColor: '#9D8506',
-              borderLeftWidth:4
-          }}
+          className='alert'
+         style={{paddingLeft:100}}
       />
           <Row >
-      <Col xs={24} xl={18} flex={3}  >
-      <Card style={{ marginLeft:10,height:"80vh"}}>
+      <Col  xs={24} xl={18} flex={3}  >
+      <Card className='first-card' style={{marginLeft:10,height:"80vh"}}>
       <p style={{fontSize:24,fontWeight:"bold"}}>Total sales</p>
-        <div style={{lg:{display:"flex"}}}>
+        <div style={{display:"flex",justifyContent:"space-between"}}>
         <div style={{marginTop:40}}>
         <p style={{color:'gray'}}>Tv</p>
         <p style={{fontSize:20,fontWeight:"semiBold"}}>600.00</p>
@@ -156,7 +143,7 @@ const App = () => {
         <p style={{fontSize:20,fontWeight:"semiBold"}}>12000.00</p>
         <p style={{color:'gray'}}>Others</p>
         <p style={{fontSize:20,fontWeight:"semiBold"}}>200.287</p></div>
-          <div style={{width:"full",lg:{marginLeft:'160px'}}}>
+          <div style={{width:'70%'}}>
           <Linechart />
           </div>
         </div>
@@ -178,7 +165,7 @@ const App = () => {
               <Select 
       defaultValue="Today"
       style={{
-      width: 100,
+      width: 80,
       }}
       
     >
@@ -221,5 +208,5 @@ const App = () => {
 
         )};
 
-export default App;
+export default Dashboard;
 

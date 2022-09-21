@@ -1,19 +1,17 @@
 @import '~antd/dist/antd.css';
 
-.product-main{
+.main{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.product-sub{
+.sub-main{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -48,4 +46,44 @@
   to {
     transform: rotate(360deg);
   }
+}
+.search-box{
+   width: 500px;
+   margin-top:18px;
+        margin-left:80px;
+        margin-right:550px;
+}
+.side{
+  display: block;
+}
+.alert{
+  height: 90;
+  color: '#9D8506';
+  font-weight: 400px;
+  font-size: 16px;
+  padding-left:300px;
+  margin:10px;
+  position: relative;
+  
+  border-left-color: #9D8506;
+  border-left-width:4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .first-card { 
+    width: 100%;
+    
+}
+.search-box{
+      margin-right: 20px;
+      width: 100px;
+      margin-left:0px;
+      
+}
+.side{
+  display: none;
+}
+body{
+  width: 100%;
+}
 }
